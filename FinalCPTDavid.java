@@ -3,12 +3,20 @@ import arc.*;
 public class FinalCPTDavid {
 	public static void main(String[] args) {
 		Console con = new Console();
-		con.println("Press P to Play");
+		con.println("Press p to Play");
 		con.println();
-		con.println("Press S to View High Score");
+		con.println("Press s to View High Score");
 		con.println();
-		con.println("Press Q to Quit");
+		con.println("Press q to Quit");
 		con.println();
-		con.println("Press H for Help");
+		con.println("Press h for Help");
+		con.println();
+		
+		char chrChoice = con.readChar();
+		if (chrChoice == 'p') {
+			con.clear();
+			con.println("What is your name?");
+			
+		}
 	}
 }
