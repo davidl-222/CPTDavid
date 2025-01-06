@@ -16,7 +16,13 @@ public class FinalCPTDavid {
 		if (chrChoice == 'p') {
 			con.clear();
 			con.println("What is your name?");
+			String strName = con.readLine();
 			
+			TextInputFile themes = new TextInputFile("themes.txt");
+			while (themes.eof() == false) {
+				String strTheme = themes.readLine();
+				con.println(strTheme);
+			}
 		}
 	}
 }
