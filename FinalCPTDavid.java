@@ -23,6 +23,9 @@ public class FinalCPTDavid {
 				String strTheme = themes.readLine();
 				con.println(strTheme);
 			}
+			con.println("What theme do you want to play?");
+			String strPlayTheme = con.readLine();
+			
 		}
 	}
 }
