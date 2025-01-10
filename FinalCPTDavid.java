@@ -33,7 +33,7 @@ public class FinalCPTDavid {
 				TextInputFile baseball = new TextInputFile("baseball.txt");
 				for (int intCount = 0; intCount < 14; intCount++) {
 					strWords[intCount][0] = baseball.readLine();
-					strWords[intCount][1] = "" + (int) (Math.random() * 14 + 1);
+					strWords[intCount][1] = "" + (int) (Math.random() * 100 + 1);
 				}
 			}
 			String strTempName;
@@ -50,7 +50,10 @@ public class FinalCPTDavid {
 					}
 				}
 			}
-			for (int i = 0; i < 14; i++) con.println(strWords[i][0] + " " + strWords[i][1]);
+			String strSecret = strWords[0][0];
+			char[] scramble = new char[strSecret.length()];
+			
+			
 		}
 	}
 }
