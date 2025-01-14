@@ -1,14 +1,14 @@
-Skiing
-Snowboarding
-Moguls
-Bindings
-Chairlifts
-Avalanche
-Carving
-Freestyle
-Black diamond
-Magic carpet
-Chalet
-Powder
-Groomed runs
-Quad lift
+skiing
+snowboarding
+moguls
+bindings
+chairlifts
+avalanche
+carving
+freestyle
+black diamond
+magic carpet
+chalet
+powder
+groomed runs
+quad lift

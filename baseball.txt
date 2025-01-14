@@ -1,14 +1,14 @@
-Fielding
-Hitting
-Pitcher
-Home run
-Home plate
-Inning
-Double play
-Catcher
-Batter
-Base hit
-Groundball
-Bases loaded
-Fly ball
-Designated hitter
+fielding
+hitting
+pitcher
+home run
+home plate
+inning
+double play
+catcher
+batter
+base hit
+groundball
+bases loaded
+fly ball
+designated hitter

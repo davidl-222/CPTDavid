@@ -65,7 +65,55 @@ public class FinalCPTDavid {
 					}
 				}
 				String strSecret = strWords[0][0];
-				char[] scramble = new char[strSecret.length()];
+				String strScrambled = "";
+				int intLength = strSecret.length();
+				String[][] scramble = new String[intLength][2];
+				for (int intCount = 0; intCount < intLength; intCount++) {
+					scramble[intCount][0] = strSecret.substring(intCount, intCount+1);
+					scramble[intCount][1] = "" + (int) (Math.random() * 100 + 1);
+				}
+				String strTemp;
+				String strTemp2;
+				for (int intCount = 0; intCount < intLength - 1; intCount++) {
+					for (int i = 0; i < intLength - 1 - intCount; i++) {
+						if (Integer.parseInt(scramble[i][1]) > Integer.parseInt(scramble[i+1][1])) {
+							strTemp = scramble[i][0];
+							strTemp2 = scramble[i][1];
+							scramble[i][0] = scramble[i+1][0];
+							scramble[i][1] = scramble[i+1][1];
+							scramble[i+1][0] = strTemp;
+							scramble[i+1][1] = strTemp2;
+						}
+					}
+				}
+				for (int intCount = 0; intCount < intLength; intCount++) {
+					strScrambled += scramble[intCount][0];
+				}
+				
+				for (int intCount = intLength - 4; intCount >= 0; intCount--) {
+					con.println(strScrambled);
+					con.println();
+					con.println(intCount + " tries remaining");
+					con.println();
+					String strGuess = con.readLine();
+					con.println();
+					if (strGuess.equalsIgnoreCase(strSecret)) {
+						con.println("You got the word right!");
+						con.println("Do you want to PLAY AGAIN or QUIT?");
+						String strChoice = con.readLine();
+						if (strChoice.equalsIgnoreCase("PLAY AGAIN")) {
+							con.clear();
+							break;
+						}
+						else {
+							blnQuit = true;
+							con.clear();
+							break;
+						}
+					} else {
+						con.clear();
+					}
+				}
 			}
 		}
 	}
