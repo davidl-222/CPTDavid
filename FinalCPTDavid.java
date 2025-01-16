@@ -4,7 +4,9 @@ public class FinalCPTDavid {
 	public static void main(String[] args) {
 		Console con = new Console();
 		boolean blnQuitGame = false;
+		TextOutputFile highscore = new TextOutputFile("highscore.txt");
 		while (blnQuitGame == false) {
+			con.clear();
 			con.println("Press p to Play");
 			con.println();
 			con.println("Press s to View High Score");
@@ -16,6 +18,7 @@ public class FinalCPTDavid {
 			
 			char chrChoice = con.readChar();
 			boolean blnQuit = false;
+			int intScore = 0;
 			if (chrChoice == 'p') {
 				con.clear();
 				con.println("What is your name?");
@@ -107,6 +110,7 @@ public class FinalCPTDavid {
 								break;
 							}
 							else {
+								highscore.println(strName + " " + intScore);
 								blnQuit = true;
 								con.clear();
 								break;
@@ -116,6 +120,7 @@ public class FinalCPTDavid {
 						con.println();
 						if (strGuess.equalsIgnoreCase(strSecret)) {
 							con.println("You got the word right!");
+							intScore++;
 							con.println("Do you want to PLAY AGAIN or QUIT?");
 							String strChoice = con.readLine();
 							if (strChoice.equalsIgnoreCase("PLAY AGAIN")) {
@@ -123,6 +128,7 @@ public class FinalCPTDavid {
 								break;
 							}
 							else {
+								highscore.println(strName + " " + intScore);
 								blnQuit = true;
 								con.clear();
 								break;
@@ -134,6 +140,15 @@ public class FinalCPTDavid {
 				}
 			}
 			if (chrChoice == 'q') System.exit(0);
+			if (chrChoice == 's') {
+				con.clear();
+				TextInputFile viewscore = new TextInputFile("highscore.txt");
+				while (viewscore.eof() == false) {
+					String strScore = viewscore.readLine();
+					con.println(strScore);
+				}
+				viewscore.close();
+			}
 		}
 	}
 }
