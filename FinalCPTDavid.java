@@ -139,8 +139,8 @@ public class FinalCPTDavid {
 					}
 				}
 			}
-			if (chrChoice == 'q') System.exit(0);
-			if (chrChoice == 's') {
+			else if (chrChoice == 'q') System.exit(0);
+			else if (chrChoice == 's') {
 				con.clear();
 				TextInputFile viewscore = new TextInputFile("highscore.txt");
 				while (viewscore.eof() == false) {
@@ -148,6 +148,9 @@ public class FinalCPTDavid {
 					con.println(strScore);
 				}
 				viewscore.close();
+			}
+			else if (chrChoice == 'h') {
+				con.clear();
 			}
 		}
 	}
