@@ -110,7 +110,7 @@ public class FinalCPTDavid {
 								break;
 							}
 							else {
-								highscore.println(strName + " " + intScore);
+								highscore.println(intScore + " " + strName);
 								blnQuit = true;
 								con.clear();
 								break;
@@ -128,7 +128,7 @@ public class FinalCPTDavid {
 								break;
 							}
 							else {
-								highscore.println(strName + " " + intScore);
+								highscore.println(intScore + " " + strName);
 								blnQuit = true;
 								con.clear();
 								break;
@@ -142,15 +142,41 @@ public class FinalCPTDavid {
 			else if (chrChoice == 'q') System.exit(0);
 			else if (chrChoice == 's') {
 				con.clear();
+				int intLength = 0;
 				TextInputFile viewscore = new TextInputFile("highscore.txt");
 				while (viewscore.eof() == false) {
 					String strScore = viewscore.readLine();
-					con.println(strScore);
+					intLength++;
 				}
+				String[] ordered = new String[intLength];
+				for (int intCount = 0; intCount < intLength; intCount++) {
+					ordered[intCount] = viewscore.readLine();
+				}
+				String strScoreTemp;	
+				for (int intCount = 0; intCount < intLength - 1; intCount++) {
+					char chrFirst = ordered[intCount].charAt(0);
+					char chrSecond = ordered[intCount+1].charAt(0);
+					if (chrFirst < chrSecond) {
+						strScoreTemp = ordered[intCount];
+						ordered[intCount] = ordered[intCount+1];
+						ordered[intCount+1] = strScoreTemp;
+					}
+				}
+				for (int intCount = 0; intCount < intLength; intCount++) {
+					con.println("1. " + ordered[intCount]);
+				}
+				con.sleep(10000);
 				viewscore.close();
 			}
 			else if (chrChoice == 'h') {
 				con.clear();
+				con.println("How to play?");
+				con.println();
+				con.println("Choose a theme you want to play");
+				con.println("A word will be given to you but scrambled");
+				con.println("Then you will have the length of the word - 4 tries to guess the word correctly");
+				con.println("If you get the word right, plus 1 to your highscore until you choose to quit");
+				con.sleep(8500);
 			}
 		}
 	}
